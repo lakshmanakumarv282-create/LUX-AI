@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>LUX AI</title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+</head>
+
+<body>
+
+<div class="app">
+
+
+    <!-- ================================= -->
+    <!-- SIDEBAR -->
+    <!-- ================================= -->
+
+    <aside class="sidebar">
+
+        <div class="brand">
+
+            <div class="logo">
+                L
+            </div>
+
+            <div>
+
+                <h2>
+                    LUX AI
+                </h2>
+
+                <span>
+                    Local Intelligence
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <!-- NEW CHAT -->
+
+        <button
+            class="new-chat"
+            id="newChat"
+            type="button"
+        >
+
+            ＋ New Chat
+
+        </button>
+
+
+        <!-- RECENT CHATS -->
+
+        <div class="sidebar-title">
+            Recent Chats
+        </div>
+
+
+        <div
+            class="chat-history"
+            id="chatHistory"
+        >
+        </div>
+
+
+        <!-- SIDEBAR BOTTOM -->
+
+        <div class="sidebar-bottom">
+
+
+            <div
+                class="sidebar-action"
+                id="settingsBtn"
+            >
+
+                ⚙️ Settings
+
+            </div>
+
+
+            <div
+                class="sidebar-action"
+                id="privateBtn"
+            >
+
+                🔒 Private AI
+
+            </div>
+
+
+            <div
+                class="sidebar-action"
+                id="aboutBtn"
+            >
+
+                ℹ️ About LUX AI
+
+            </div>
+
+
+        </div>
+
+
+    </aside>
+
+
+
+    <!-- ================================= -->
+    <!-- MAIN CHAT -->
+    <!-- ================================= -->
+
+    <main class="chat-area">
+
+
+        <!-- TOPBAR -->
+
+        <header class="topbar">
+
+            <div>
+
+                <h3>
+                    LUX AI
+                </h3>
+
+
+                <span class="status">
+
+                    <span class="dot"></span>
+
+                    Local AI Online
+
+                </span>
+
+            </div>
+
+
+            <button
+                class="clear-btn"
+                id="clearChat"
+                type="button"
+            >
+
+                Clear Chat
+
+            </button>
+
+        </header>
+
+
+
+        <!-- ================================= -->
+        <!-- WELCOME -->
+        <!-- ================================= -->
+
+        <section
+            class="welcome"
+            id="welcome"
+        >
+
+            <div class="lux-icon">
+                ✦
+            </div>
+
+
+            <!-- USER NAME WILL SHOW HERE -->
+
+            <h1>
+
+                Welcome back,
+                <span id="userName">
+                    Guest
+                </span>
+                👋
+
+            </h1>
+
+
+            <p>
+                Your Smart Local AI Assistant
+            </p>
+
+
+            <div class="privacy-badge">
+
+                🔒 Private • Local • Intelligent
+
+            </div>
+
+
+            <!-- FEATURES -->
+
+            <div class="capabilities">
+
+
+                <button
+                    class="prompt-btn"
+                    data-prompt="Ask me anything"
+                    type="button"
+                >
+
+                    <span>
+                        💬
+                    </span>
+
+                    <strong>
+                        Ask Anything
+                    </strong>
+
+                </button>
+
+
+                <button
+                    class="prompt-btn"
+                    data-prompt="Analyze this image"
+                    type="button"
+                >
+
+                    <span>
+                        🖼️
+                    </span>
+
+                    <strong>
+                        Analyze Image
+                    </strong>
+
+                </button>
+
+
+                <button
+                    class="prompt-btn"
+                    data-prompt="Summarize this document"
+                    type="button"
+                >
+
+                    <span>
+                        📄
+                    </span>
+
+                    <strong>
+                        Understand PDF
+                    </strong>
+
+                </button>
+
+
+                <button
+                    class="prompt-btn"
+                    data-prompt="Compare these images"
+                    type="button"
+                >
+
+                    <span>
+                        🔍
+                    </span>
+
+                    <strong>
+                        Compare Images
+                    </strong>
+
+                </button>
+
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- ================================= -->
+        <!-- CHAT MESSAGES -->
+        <!-- ================================= -->
+
+        <div
+            class="messages"
+            id="messages"
+        >
+        </div>
+
+
+
+        <!-- ================================= -->
+        <!-- INPUT AREA -->
+        <!-- ================================= -->
+
+        <div class="input-area">
+
+
+            <!-- IMAGE PREVIEW -->
+
+            <div
+                class="attachment-preview"
+                id="attachmentPreview"
+            >
+            </div>
+
+
+            <!-- UPLOAD BUTTON -->
+
+            <button
+                class="upload-btn"
+                id="uploadBtn"
+                type="button"
+                title="Upload images"
+            >
+
+                📎
+
+            </button>
+
+
+            <!-- FILE INPUT -->
+
+            <input
+                type="file"
+                id="fileInput"
+                hidden
+                multiple
+                accept="image/png,image/jpeg,image/jpg,image/webp"
+            >
+
+
+            <!-- TEXT INPUT -->
+
+            <input
+                type="text"
+                id="messageInput"
+                placeholder="Ask LUX AI anything..."
+                autocomplete="off"
+            >
+
+
+            <!-- SEND BUTTON -->
+
+            <button
+                class="send-btn"
+                id="sendBtn"
+                type="button"
+                title="Send"
+            >
+
+                ➤
+
+            </button>
+
+
+        </div>
+
+
+        <!-- PRIVACY -->
+
+        <div class="privacy">
+
+            🔒 LUX AI runs locally with your AI model
+
+        </div>
+
+
+    </main>
+
+</div>
+
+
+
+<!-- ================================= -->
+<!-- SETTINGS POPUP -->
+<!-- ================================= -->
+
+<div
+    class="modal"
+    id="settingsModal"
+>
+
+    <div class="modal-box">
+
+
+        <button
+            class="modal-close"
+            data-close="settingsModal"
+            type="button"
+        >
+
+            ×
+
+        </button>
+
+
+        <div class="modal-icon">
+            ⚙️
+        </div>
+
+
+        <h2>
+            Settings
+        </h2>
+
+
+        <p class="modal-subtitle">
+            LUX AI configuration
+        </p>
+
+
+        <div class="setting-row">
+
+            <span>
+                AI Model
+            </span>
+
+            <strong>
+                Qwen2.5-VL 7B
+            </strong>
+
+        </div>
+
+
+        <div class="setting-row">
+
+            <span>
+                AI Engine
+            </span>
+
+            <strong>
+                Ollama
+            </strong>
+
+        </div>
+
+
+        <div class="setting-row">
+
+            <span>
+                Backend
+            </span>
+
+            <strong>
+                Flowise
+            </strong>
+
+        </div>
+
+
+        <div class="setting-row">
+
+            <span>
+                Mode
+            </span>
+
+            <strong>
+                Local
+            </strong>
+
+        </div>
+
+
+        <button
+            class="modal-button"
+            data-close="settingsModal"
+            type="button"
+        >
+
+            Close
+
+        </button>
+
+
+    </div>
+
+</div>
+
+
+
+<!-- ================================= -->
+<!-- PRIVATE AI POPUP -->
+<!-- ================================= -->
+
+<div
+    class="modal"
+    id="privateModal"
+>
+
+    <div class="modal-box">
+
+
+        <button
+            class="modal-close"
+            data-close="privateModal"
+            type="button"
+        >
+
+            ×
+
+        </button>
+
+
+        <div class="modal-icon">
+            🔒
+        </div>
+
+
+        <h2>
+            Private AI
+        </h2>
+
+
+        <p class="modal-subtitle">
+            Your privacy is important
+        </p>
+
+
+        <div class="privacy-info">
+
+            <div>
+                ✓ AI model runs locally
+            </div>
+
+            <div>
+                ✓ Images are processed locally
+            </div>
+
+            <div>
+                ✓ Chat data stays on your computer
+            </div>
+
+            <div>
+                ✓ No external AI cloud required
+            </div>
+
+        </div>
+
+
+        <div class="local-status">
+
+            <span class="status-dot"></span>
+
+            Local AI Active
+
+        </div>
+
+
+        <button
+            class="modal-button"
+            data-close="privateModal"
+            type="button"
+        >
+
+            Close
+
+        </button>
+
+
+    </div>
+
+</div>
+
+
+
+<!-- ================================= -->
+<!-- ABOUT POPUP -->
+<!-- ================================= -->
+
+<div
+    class="modal"
+    id="aboutModal"
+>
+
+    <div class="modal-box">
+
+
+        <button
+            class="modal-close"
+            data-close="aboutModal"
+            type="button"
+        >
+
+            ×
+
+        </button>
+
+
+        <div class="modal-icon">
+            ✦
+        </div>
+
+
+        <h2>
+            About LUX AI
+        </h2>
+
+
+        <p class="modal-subtitle">
+            Local Intelligence Assistant
+        </p>
+
+
+        <div class="about-content">
+
+            <p>
+
+                <strong>
+                    LUX AI
+                </strong>
+
+                is a private local AI assistant
+                designed to work with locally
+                running AI models.
+
+            </p>
+
+
+            <p>
+
+                It uses
+
+                <strong>
+                    Ollama
+                </strong>,
+
+                <strong>
+                    Qwen2.5-VL
+                </strong>
+
+                and
+
+                <strong>
+                    Flowise
+                </strong>
+
+                for intelligent text and image
+                processing.
+
+            </p>
+
+        </div>
+
+
+        <div class="about-version">
+
+            Version 1.0
+
+        </div>
+
+
+        <button
+            class="modal-button"
+            data-close="aboutModal"
+            type="button"
+        >
+
+            Close
+
+        </button>
+
+
+    </div>
+
+</div>
+
+
+
+<!-- JAVASCRIPT -->
+
+<script src="script.js"></script>
+
+</body>
+
+</html>
